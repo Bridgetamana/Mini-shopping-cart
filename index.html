@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./output.css">
+    <title>Mini Shopping cart</title>
+</head>
+<body>      
+    
+    <!-- NAV -->
+    <nav class="bg-white z-20 fixed w-full top-0 left-0 border-b border-gray-200">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <h2 class="self-center text-2xl font-semibold whitespace-nowrap">Boutique</h2>
+            </a>
+            <div class="flex items-center md:order-2 space-x-3">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                </svg>                      
+            </div>
+            <button data-collapse-toggle="navbar-user" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm rounded-lg md:hidden" aria-controls="navbar-user" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+                </svg>
+            </button>
+            <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
+                <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white">
+                    <li>
+                    <a href="#" class="block py-2 px-3 text-white bg-black rounded md:bg-transparent md:text-black md:p-0 " aria-current="page">New Arrivals</a>
+                    </li>
+                    <li>
+                    <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0 ">Bridal Set</a>
+                    </li>
+                    <li>
+                    <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0 ">Couple Sets</a>
+                    </li>
+                    <li>
+                    <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0 ">Women Basic</a>
+                    </li>
+                    <li>
+                    <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0 ">Women luxe</a>
+                    </li>
+                    <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0 ">Short Sets</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- BREADCRUMB -->
+    <div class="pt-24">
+        <div aria-label="Breadcrumb">
+            <ol role="list" class="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+                <li>
+                    <div class="flex items-center">
+                        <a href="#" class="mr-2 text-sm font-medium text-gray-900">Woman Luxe</a>
+                        <svg width="16" height="20" viewBox="0 0 16 20" fill="currentColor" aria-hidden="true" class="h-5 w-4 text-gray-300">
+                            <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
+                        </svg>
+                    </div>
+                </li>
+                <li class="text-sm">
+                    <a href="#" aria-current="page" class="font-medium text-gray-500 hover:text-gray-600">Velvet 3 PC </a>
+                </li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- PRODUCT BODY -->
+    <main >
+      <div class="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
+        <!-- PRODUCT IMAGE -->
+        <div class="aspect-h-4 aspect-w-3 hidden overflow-hidden rounded-lg lg:block">
+          <img src="./img/ecommerce-image.png" alt="Model wearing velvet 3 PC." class="h-full w-full object-cover object-center">
+        </div>
+        <div class="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
+          <div class="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
+            <img src="./img/ecommerce-image02.png" alt="Model wearing plain black basic tee." class="h-full w-full object-cover object-center">
+          </div>
+          <div class="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
+            <img src="./img/ecommerce-image03.png" alt="Model wearing plain gray basic tee." class="h-full w-full object-cover object-center">
+          </div>
+        </div>
+        <div class="aspect-h-5 aspect-w-4 lg:aspect-h-4 lg:aspect-w-3 sm:overflow-hidden sm:rounded-lg">
+          <img src="./img/ecommerce-image04.png" alt="Model wearing plain white basic tee." class="h-full w-full object-cover object-center">
+        </div>
+      </div>
+
+        <!-- Product info -->
+        <div class="mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16">
+          <h2 class="sr-only">Product information</h2>
+          <div class="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
+            <h1 class="text-2xl font-bold text-gray-900 sm:text-3xl">Cardigan with pockets</h1>
+            <p class="text-sm text-gray-500">SKU:WESTTOP02660-SML-999</p>
+          </div>
+      
+          <!-- Options -->
+          <div class="mt-4 lg:row-span-3 lg:mt-0">   
+            <form class="mt-10">
+            <!-- Colors -->
+              <div>
+                <h3 class="text-sm font-medium text-gray-900">Color:</h3>
+                <fieldset class="mt-4">
+                  <div class="flex items-center space-x-3">
+                    <label class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none">
+                      <input type="radio" name="color-choice" value="White" class="sr-only">
+                      <span class="h-8 w-8 bg-white rounded-full border border-black border-opacity-20"></span>
+                    </label>
+                    <label class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none">
+                      <input type="radio" name="color-choice" value="White" class="sr-only">
+                      <span class="h-8 w-8 bg-black rounded-full border border-black border-opacity-10"></span>
+                    </label>
+                  </div>
+                </fieldset>
+              </div>
+        
+              <!-- Sizes -->
+              <div class="mt-10">
+                <h3 class="text-sm font-medium text-gray-900">Size:</h3>
+                <fieldset class="mt-4">
+                  <div class="flex items-center space-x-3">
+                    <label class="relative flex cursor-pointer items-center justify-center rounded-full focus:outline-none uppercase">
+                      <input type="radio" name="size-choice" value="White" class="sr-only">
+                      <span class="py-3 px-4 bg-white rounded-full border border-black border-opacity-10 flex items-center justify-center">sm</span>
+                    </label>
+                    <label class="relative flex cursor-pointer items-center justify-center rounded-full focus:outline-none uppercase">
+                      <input type="radio" name="size-choice" value="White" class="sr-only">
+                      <span class="py-3 px-4 bg-white rounded-full border border-black border-opacity-10 flex items-center justify-center">M</span>
+                    </label>
+                    <label class="relative flex cursor-pointer items-center justify-center rounded-full focus:outline-none uppercase">
+                      <input type="radio" name="size-choice" value="White" class="sr-only">
+                      <span class="py-3 px-4 bg-white rounded-full border border-black border-opacity-10 flex items-center justify-center">l</span>
+                    </label>
+                    <label class="relative flex cursor-pointer items-center justify-center rounded-full focus:outline-none uppercase">
+                      <input type="radio" name="size-choice" value="White" class="sr-only">
+                      <span class="py-3 px-4 bg-white rounded-full border border-black border-opacity-10 flex items-center justify-center">xl</span>
+                    </label>
+                  </div>
+                </fieldset>
+              </div>    
+              <button type="submit" class="mt-10 flex w-full items-center justify-center rounded-md bg-black px-8 py-3 text-base font-medium text-white">Add to bag</button>
+            </form>
+          </div>
+      
+            <div class="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">
+              <!-- Description and details -->
+              <div>
+                <h3 class="text-sm font-medium text-gray-900">Description</h3>
+                <div class="space-y-6 mt-4">
+                  <p class="text-base text-gray-900">Soft yarn cardigan with shawl collar and pockets. perfect blend of comfort and fashion. Crafted with the finest materials, this cardigan is designed to keep you warm and effortlessly chic.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </main>
+    <script src="./script.js"></script>
+</body>
+</html>
