@@ -600,7 +600,6 @@ video {
   clip: auto;
   white-space: normal;
 }
-
 .pointer-events-none {
   pointer-events: none;
 }
@@ -879,6 +878,9 @@ video {
 
 .w-10 {
   width: 2.5rem;
+}
+.w-24 {
+  width: 6rem;
 }
 
 .w-5 {
@@ -1530,6 +1532,14 @@ video {
 
 .self-start {
   align-self: flex-start;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.pb-4 {
+  margin-bottom: 1rem;
 }
 
 .self-end {

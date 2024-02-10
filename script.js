@@ -13,7 +13,6 @@ const productCard = document.getElementById('product-card-container');
 const cartBtn = document.getElementById('cart-btn');
 const clearCartBtn = document.getElementById('clear-cart-btn');
 const totalNumberOfItems = document.getElementById('total-items');
-const cartSubTotal = document.getElementById('subtotal');
 const cartTaxes = document.getElementById('taxes');
 const cartTotal = document.getElementById('total');
 const showHideCart = document.getElementById('show-hide-cart');
@@ -25,19 +24,19 @@ const products = [
     Image: './img/ecommerce-image.png',
     itemName: 'Velvet 3 PC',
     itemColor: 'Green',
-    itemPrice: 35,
+    itemPrice: 12,
   },
   {
     id: 2,
     Image: './img/ecommerce-image02.png',
     itemName: 'Velvet 3 PC',
     itemColor: 'Black',
-    itemPrice: 35,
+    itemPrice: 23,
   },
   {
     id: 3,
     Image: 'img/ecommerce-image03.png',
-    itemName: 'Velvet 2 PC',
+    itemName: 'Satin 2 PC',
     itemColor: 'Black',
     itemPrice: 35,
   },
@@ -46,15 +45,15 @@ const products = [
     Image: 'img/ecommerce-image04.png',
     itemName: 'Satin set',
     itemColor: 'Red',
-    itemPrice: 35,
+    itemPrice: 12.5,
   }
 ]
 
 products.forEach(({id, itemName, Image, itemColor, itemPrice}) => {
   productCard.innerHTML += `
-  <div class="group relative">
+  <div>
     <div class=" w-full overflow-hidden rounded-md bg-gray-200 lg:h-80">
-      <img src="${Image}" alt="${itemName}" class="h-full w-full object-cover object-center lg:h-full lg:w-full">
+      <img src="${Image}" alt="${itemName}" class="h-full w-full object-cover object-center mr-4">
     </div>
     <div class="mt-4 flex justify-between">
       <div>
@@ -92,17 +91,18 @@ class ShoppingCart {
     this.items.forEach((card) => {
       totalCountPerProduct[card.id] = (totalCountPerProduct[card.id] || 0) + 1;
     })
+    
 
     const currentProductCount = totalCountPerProduct[product.id];
 
     const currentProductCountSpan = document.getElementById(`product-count-for-id${id}`);
 
     currentProductCount > 1 ? currentProductCountSpan.textContent = `${currentProductCount}x` : productsContainer.innerHTML += `
-      <div id=card${id} class="">
-        <div class="">
-          <div class=''>
+      <div id=card${id}>
+        <div class="border-b divide-gray-200 mb-4">
+          <div class="flex space-x-3">
             <div class=''>
-              <img src='${Image}' alt='${itemName}'"/>
+              <img src='${Image}' alt='${itemName}' class='w-24 pb-4'/>
             </div>
             <div class="">
               <h2 id=product-count-for-id${id}>${itemName}</h2>
@@ -113,7 +113,37 @@ class ShoppingCart {
       </div>
     `;
   }
+
+  getCounts () {
+    return this.items.length;
+  }
+
+  calculateTotal () {
+    this.total = this.items.reduce((total, item) => total + item.itemPrice, 0);
+    cartTotal.textContent = `$${this.total.toFixed(2)}`;
+    return this.total
+  }
+
+  clearCart () {
+    if (!this.items.length) {
+      alert("Your shopping cart is empty");
+      return;
+    }
+
+    const isCartCleared = confirm(
+      "Are you sure you want to clear all items from your shopping cart?"
+    );
+
+    if (isCartCleared) {
+      this.items = [];
+      this.total = 0;
+      productsContainer.innerHTML = "";
+      totalNumberOfItems.textContent = 0;
+      cartTotal.textContent = 0;
+    }
+  }
 };
+
 
 const cart = new ShoppingCart();
 const addToCartBtns = document.getElementsByClassName('add-to-cart-btn');
@@ -121,7 +151,8 @@ const addToCartBtns = document.getElementsByClassName('add-to-cart-btn');
 [...addToCartBtns].forEach((btn) => {
     btn.addEventListener("click", (event) => {
       cart.addItem(Number(event.target.id), products);
-      
+      totalNumberOfItems.textContent = cart.getCounts();
+      cart.calculateTotal()
     })
 })
 cartBtn.addEventListener('click', () => {
@@ -129,3 +160,4 @@ cartBtn.addEventListener('click', () => {
   showHideCart.textContent = isCartShowing ? "Hide" : "Show";
   cartContainer.style.display = isCartShowing ? "block" : "none";
 })
+clearCartBtn.addEventListener('click', cart.clearCart.bind(cart));

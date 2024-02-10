@@ -27,11 +27,16 @@
           
           <!-- SHOW CART -->
 
-          <div id="cart-container" class="absolute top-16 right-0 border-2 rounded-md text-center">
-            <button id="clear-cart-btn">Clear cart</button>
+          <div id="cart-container" class="absolute top-16 right-0 border-2 rounded-md text-center bg-white p-4 hidden">
+            <div class="flex justify-end pb-4">
+              <button id="clear-cart-btn">
+                <svg class="h-6 w-6  " fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
             <div id="products-container"></div>
             <p>Total number of items: <span id="total-items">0</span></p>
-            <p>Subtotal: <span id="subtotal">$0</span></p>
             <p>Total: <span id="total">$0</span></p>
           </div>
 
@@ -63,7 +68,7 @@
     </nav>
 
     <div class="bg-white pt-24">
-      <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+      <div class="mx-auto px-4 sm:px-6 sm:py-24 lg:px-8">
         <h2 class="text-2xl font-bold tracking-tight text-gray-900">New Arrivals</h2>
     
         <div class="mt-6 grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8" id="product-card-container">
