@@ -97,21 +97,26 @@ class ShoppingCart {
 
     const currentProductCountSpan = document.getElementById(`product-count-for-id${id}`);
 
-    currentProductCount > 1 ? currentProductCountSpan.textContent = `${currentProductCount}x` : productsContainer.innerHTML += `
-      <div id=card${id}>
-        <div class="border-b divide-gray-200 mb-4">
-          <div class="flex space-x-3">
-            <div class=''>
-              <img src='${Image}' alt='${itemName}' class='w-24 pb-4'/>
-            </div>
-            <div class="">
-              <h2 id=product-count-for-id${id}>${itemName}</h2>
-              <p>${itemPrice}</p>
-            </div>
+    if (currentProductCount > 1) {
+    currentProductCountSpan.textContent = `${currentProductCount}x ${product.itemName}`;
+    } else {
+    productsContainer.innerHTML += `
+    <div id=card${id}>
+      <div class="border-b divide-gray-200 mb-4">
+        <div class="flex space-x-3">
+          <div class=''>
+            <img src='${Image}' alt='${itemName}' class='w-24 pb-4'/>
+          </div>
+          <div class="">
+            <h2 id=product-count-for-id${id}>${itemName}</h2>
+            <p>${itemPrice}</p>
           </div>
         </div>
       </div>
-    `;
+    </div>
+  `;
+}
+
   }
 
   getCounts () {
@@ -157,7 +162,6 @@ const addToCartBtns = document.getElementsByClassName('add-to-cart-btn');
 })
 cartBtn.addEventListener('click', () => {
   isCartShowing = !isCartShowing;
-  showHideCart.textContent = isCartShowing ? "Hide" : "Show";
   cartContainer.style.display = isCartShowing ? "block" : "none";
 })
 clearCartBtn.addEventListener('click', cart.clearCart.bind(cart));
