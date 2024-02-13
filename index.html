@@ -29,7 +29,7 @@
 
           <div id="cart-container" class="absolute top-16 right-0 border-2 rounded-md text-center bg-white p-4 hidden">
             <div class="flex justify-end pb-4">
-              <button id="clear-cart-btn">
+              <button id="clear-cart-btn" class="text-gray-700 hover:text-gray-800">
                 <svg class="h-6 w-6  " fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
@@ -38,6 +38,9 @@
             <div id="products-container"></div>
             <p>Total number of items: <span id="total-items">0</span></p>
             <p>Total: <span id="total">$0</span></p>
+            <div class="mt-6">
+              <a href="#" class="flex items-center justify-center rounded-md border border-transparent bg-gray-900 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-gray-700">Checkout</a>
+            </div>
           </div>
 
           <button data-collapse-toggle="navbar-user" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm rounded-lg md:hidden" aria-controls="navbar-user" aria-expanded="false">
@@ -77,7 +80,7 @@
         
       </div>
     </div>
-    <div class="text-gray-200 text-center mt-4 pb-4">
+    <div class="text-gray-800 text-center mt-4 pb-4">
       Made with 💙 by <a href="#" class="hover:underline">Bridget Amana</a>
     </div>
     <script src="./script.js"></script>

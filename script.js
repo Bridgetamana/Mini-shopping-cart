@@ -102,16 +102,17 @@ class ShoppingCart {
     } else {
     productsContainer.innerHTML += `
     <div id=card${id}>
-      <div class="border-b divide-gray-200 mb-4">
-        <div class="flex space-x-3">
-          <div class=''>
-            <img src='${Image}' alt='${itemName}' class='w-24 pb-4'/>
+      <div class="mb-4">
+        <div class="flex space-x-3 items-center">
+          <div class='h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200'>
+            <img src='${Image}' alt='${itemName}' class='h-full w-full object-cover object-center'/>
           </div>
           <div class="">
-            <h2 id=product-count-for-id${id}>${itemName}</h2>
-            <p>${itemPrice}</p>
+            <h2 id=product-count-for-id${id} class='text-base font-medium text-gray-900'>${itemName}</h2>
+            <p class='text-gray-500'>${itemPrice}</p>
           </div>
         </div>
+        
       </div>
     </div>
   `;
