@@ -24,7 +24,7 @@ const products = [
     Image: './img/ecommerce-image.png',
     itemName: 'Velvet 3 PC',
     itemColor: 'Green',
-    itemPrice: 12,
+    itemPrice: 10.59,
   },
   {
     id: 2,
@@ -38,7 +38,7 @@ const products = [
     Image: 'img/ecommerce-image03.png',
     itemName: 'Satin 2 PC',
     itemColor: 'Black',
-    itemPrice: 35,
+    itemPrice: 32.99,
   },
   {
     id: 4,
@@ -65,7 +65,7 @@ products.forEach(({id, itemName, Image, itemColor, itemPrice}) => {
         </p>
       </div>
       <p class="text-sm font-medium text-gray-900">
-        ${itemPrice}
+        $${itemPrice}
       </p>
     </div>
     <button id="${id}" class="add-to-cart-btn mt-4 flex w-full items-center justify-center rounded-md border border-transparent bg-gray-900 py-2 text-sm font-medium text-white uppercase">add to bag</button>
@@ -109,7 +109,7 @@ class ShoppingCart {
           </div>
           <div class="">
             <h2 id=product-count-for-id${id} class='text-base font-medium text-gray-900'>${itemName}</h2>
-            <p class='text-gray-500'>${itemPrice}</p>
+            <p class='text-gray-500'>$${itemPrice}</p>
           </div>
         </div>
         
