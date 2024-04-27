@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const navbarUser = document.getElementById('navbar-user');
-    const menuButton = document.querySelector('[data-collapse-toggle="navbar-user"]');
+  const navbarUser = document.getElementById('navbar-user');
+  const menuButton = document.querySelector('[data-collapse-toggle="navbar-user"]');
 
-    menuButton.addEventListener('click', function () {
-      navbarUser.classList.toggle('hidden');
-    });
+  menuButton.addEventListener('click', function () {
+    navbarUser.classList.toggle('hidden');
   });
+});
 
 const cartContainer = document.getElementById('cart-container');
 const productsContainer = document.getElementById('products-container');
@@ -45,14 +45,56 @@ const products = [
     Image: 'img/ecommerce-image04.png',
     itemName: 'Satin set',
     itemColor: 'Red',
-    itemPrice: 12.5,
+    itemPrice: 22.5,
+  },
+  {
+    id: 5,
+    Image: 'img/ecommerce-image05.jpg',
+    itemName: 'Basic Tee',
+    itemColor: 'Red',
+    itemPrice: 13.8,
+  },
+  {
+    id: 6,
+    Image: 'img/ecommerce-image06.jpg',
+    itemName: 'Satin set',
+    itemColor: 'Red',
+    itemPrice: 7,
+  },
+  {
+    id: 7,
+    Image: 'img/ecommerce-image07.jpg',
+    itemName: 'Basic Tee',
+    itemColor: 'White',
+    itemPrice: 8.5,
+  },
+  {
+    id: 8,
+    Image: 'img/ecommerce-image08.jpg',
+    itemName: 'Basic Tee',
+    itemColor: 'Black',
+    itemPrice: 10.3,
+  },
+  {
+    id: 9,
+    Image: 'img/ecommerce-image09.jpg',
+    itemName: 'Basic Tee',
+    itemColor: 'Gray',
+    itemPrice: 15,
+  },
+  {
+    id: 10,
+    Image: 'img/ecommerce-image10.jpg',
+    itemName: 'Basic Tee',
+    itemColor: 'Peach',
+    itemPrice: 55.5,
   }
 ]
 
-products.forEach(({id, itemName, Image, itemColor, itemPrice}) => {
+products.forEach(({ id, itemName, Image, itemColor, itemPrice }) => {
   productCard.innerHTML += `
   <div>
-    <div class=" w-full overflow-hidden rounded-md bg-gray-200 lg:h-80">
+    <div class=" w-full overflow-hidden rounded-md bg-gray-200 max-w-sm max-h-sm">
       <img src="${Image}" alt="${itemName}" class="h-full w-full object-cover object-center mr-4">
     </div>
     <div class="mt-4 flex justify-between">
@@ -79,7 +121,7 @@ class ShoppingCart {
     this.total = 0;
   }
 
-  addItem (id, products) {
+  addItem(id, products) {
     const product = products.find(
       (item) => item.id === id
     );
@@ -91,20 +133,19 @@ class ShoppingCart {
     this.items.forEach((card) => {
       totalCountPerProduct[card.id] = (totalCountPerProduct[card.id] || 0) + 1;
     })
-    
+
 
     const currentProductCount = totalCountPerProduct[product.id];
 
     const currentProductCountSpan = document.getElementById(`product-count-for-id${id}`);
 
     if (currentProductCount > 1) {
-    currentProductCountSpan.textContent = `${currentProductCount}x ${product.itemName}`;
+      currentProductCountSpan.textContent = `${currentProductCount}x ${product.itemName}`;
     } else {
-    productsContainer.innerHTML += `
-    <div id=card${id}>
-      <div class="mb-4">
+      productsContainer.innerHTML += `
+    <div id=card${id} class="mb-4 p-4">
         <div class="flex space-x-3 items-center">
-          <div class='h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200'>
+          <div class='h-36 w-36 flex-shrink-0 overflow-hidden rounded-md border border-gray-200'>
             <img src='${Image}' alt='${itemName}' class='h-full w-full object-cover object-center'/>
           </div>
           <div class="">
@@ -113,24 +154,23 @@ class ShoppingCart {
           </div>
         </div>
         
-      </div>
     </div>
   `;
-}
+    }
 
   }
 
-  getCounts () {
+  getCounts() {
     return this.items.length;
   }
 
-  calculateTotal () {
+  calculateTotal() {
     this.total = this.items.reduce((total, item) => total + item.itemPrice, 0);
     cartTotal.textContent = `$${this.total.toFixed(2)}`;
     return this.total
   }
 
-  clearCart () {
+  clearCart() {
     if (!this.items.length) {
       alert("Your shopping cart is empty");
       return;
@@ -155,11 +195,11 @@ const cart = new ShoppingCart();
 const addToCartBtns = document.getElementsByClassName('add-to-cart-btn');
 
 [...addToCartBtns].forEach((btn) => {
-    btn.addEventListener("click", (event) => {
-      cart.addItem(Number(event.target.id), products);
-      totalNumberOfItems.textContent = cart.getCounts();
-      cart.calculateTotal()
-    })
+  btn.addEventListener("click", (event) => {
+    cart.addItem(Number(event.target.id), products);
+    totalNumberOfItems.textContent = cart.getCounts();
+    cart.calculateTotal()
+  })
 })
 cartBtn.addEventListener('click', () => {
   isCartShowing = !isCartShowing;
