@@ -93,7 +93,7 @@ const products = [
 
 products.forEach(({ id, itemName, Image, itemColor, itemPrice }) => {
   productCard.innerHTML += `
-  <div>
+  <div class="max-w-sm">
     <div class=" w-full overflow-hidden rounded-md bg-gray-200 max-w-sm max-h-sm">
       <img src="${Image}" alt="${itemName}" class="h-full w-full object-cover object-center mr-4">
     </div>
